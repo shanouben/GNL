@@ -114,12 +114,10 @@ char	*ft_strjoinfree(char *s1, char *s2)
 {
     char *join;
 
-    //if( s1 || s2)
-      //  return( NULL);
     if (!(join = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
         return (NULL);
     ft_strcpy(join, s1);
-    ft_strcpy(join +ft_strlen(s1), s2);
+    ft_strcpy(join + ft_strlen(s1), s2);
     free(s2);
     free(s1);
     return (join);
@@ -130,9 +128,8 @@ int main(int ac, char **av)
     (void)ac;
     
      
-    printf("%s\n", ft_strjoinfree(av[1], av[2]));
-    printf("%s\n", av[1]);
-    printf("%s\n", av[2]);
+    printf("%s\n", ft_strjoinfree(ft_strdup(av[1]), ft_strdup(av[2])));
+  
 
     return 0;
     }
